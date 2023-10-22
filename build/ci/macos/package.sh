@@ -51,7 +51,7 @@ cp -Rf ~/Library/Frameworks/Sparkle.framework applebuild/mscore.app/Contents/Fra
 # Setup keychain for code sign
 if [ "$SIGN_CERTIFICATE_ENCRYPT_SECRET" != "''" ]; then 
 
-    7z x -y ./build/ci/macos/resources/mac_musescore.p12.enc -o./build/ci/macos/resources/ -p${SIGN_CERTIFICATE_ENCRYPT_SECRET}
+    7zz x -y ./build/ci/macos/resources/mac_musescore.p12.enc -o./build/ci/macos/resources/ -p${SIGN_CERTIFICATE_ENCRYPT_SECRET}
 
     export CERTIFICATE_P12=./build/ci/macos/resources/mac_musescore.p12
     export KEYCHAIN=build.keychain

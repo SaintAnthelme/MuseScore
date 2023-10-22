@@ -188,7 +188,7 @@ jobs:
         echo "============== ccache ==============="
         ccache -s
     - name: Generate dump symbols
-      if: env.DO_BUILD == 'true'
+      if: env.DO_BUILD == 'false'
       run: |
         bash ./build/ci/macos/dumpsyms.sh  
     - name: Package 

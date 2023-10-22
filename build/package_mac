@@ -133,7 +133,7 @@ rm -rf ${VOLUME}/${APPNAME}.app/Contents/Resources/qml/Qt/WebSockets
 find ${VOLUME}/${APPNAME}.app/Contents -type d -name "*.dSYM" -exec rm -r {} +
 
 #homebrew libs may not be writable force it?
-chmod -R +w /usr/local/Cellar/
+chmod -R +w /opt/homebrew/Cellar/
 macdeployqt ${VOLUME}/${APPNAME}.app
 
 # fix the libs, qt5.6 has @rpath...
@@ -149,7 +149,7 @@ do
     then
         for P1 in `otool -L $P | awk '{print $1}'`
         do
-            if [[ "$P1" == /usr/local/Cellar*.dylib ]]
+            if [[ "$P1" == /opt/homebrew/Cellar*.dylib ]]
             then
                 PATHNAME=$(dirname $P1)
                 PSLASH1=$(echo $P1 | sed "s,$PATHNAME,@executable_path/../Frameworks,g")
